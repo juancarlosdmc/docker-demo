@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    tools {
+        gradle 'Gradle-8.11-rc-1'    
+    }
+    
     stages {
         stage("build front") {
             steps {
@@ -12,9 +17,7 @@ pipeline {
         stage("build back") {
             steps {
               echo 'building the app with gradle'
-              withGradle() {
                   sh './gradlew -v'
-              }
             }
         } 
         stage("test") {
