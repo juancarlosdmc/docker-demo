@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        gradle 'Gradle-6.2'    
+        maven 'Maven'    
     }
     
     stages {
@@ -17,7 +17,7 @@ pipeline {
         stage("build back") {
             steps {
               echo 'building the app with gradle'
-                  sh './gradlew -v'
+                  sh 'mvn -v'
             }
         } 
         stage("test") {
